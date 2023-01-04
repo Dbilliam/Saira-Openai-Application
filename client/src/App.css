@@ -1,0 +1,213 @@
+.App {
+  text-align: center;
+  display: flex;
+  background-color: #282c34;
+  color: white;
+  position:absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+}
+
+.sidemenu {
+  width: 240px;
+  padding: 10px;
+  border: 1px solid white ;
+  background-color: #202123;
+
+}
+.chatbox {
+  flex: 1;
+  border: 1px solid white;
+  background-color: #343541;
+  position: relative;
+}
+
+.side-menu-button {
+  padding: 12px;
+  border: 1px solid white;
+  border-radius: 5px;
+  text-align: left;
+  transition: ease 0.2s all;
+}
+.side-menu-button:hover{
+  background-color: rgb(141, 129, 129);
+}
+.side-menu-button span{
+  padding-left: 6px;
+  padding-right: 12px;
+}
+
+
+.chat-input-holder {
+  padding: 24px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+}
+.models{
+  padding: 12px;
+  border: 1px solid white;
+  border-radius: 5px;
+  text-align: center;
+  transition: ease 0.2s all;
+}
+
+.options {
+  cursor: pointer;
+  width: 200px;
+  min-height: 40px;
+  max-height: 200px;
+  border-radius: 5px;
+  color: white;
+  background-color: #202123;
+  transition: all 300ms;
+}
+
+.option {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.option:hover {
+  background-color: brown;
+  color: white;
+}
+.options.opened {
+  overflow-y: scroll;
+}
+
+.option {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  transition: all 300ms;
+}
+
+.option:nth-child(1) {
+  border-radius: 15px;
+}
+
+.option:hover {
+  background-color: brown;
+  color: white;
+}
+.chat-input-textarea {
+  background-color: #40414f;
+  padding: 12px;
+  color: white;
+  font-size: 1.25em;
+  width: 90%;
+  border: none;
+  border-radius: 5px;
+  margin: 12px;
+  outline: none;
+  box-shadow: 0 0 8px 0 rbga(0,0,0,0.25);
+
+}
+
+
+.chat-log{
+  text-align: left;
+ 
+}
+.chat-message-center {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  padding: 12px;
+  padding-left: 24px;
+  padding-right: 24px;
+
+}
+.chat-message.chatgpt {
+  background-color: rgba(255,255,255,0.1);
+
+}
+
+.avatar{
+   background: white;
+   border-radius: 50%;
+   width: 40px;
+   height: 40px;
+
+}
+
+.avatar.chatgpt{
+  background: #0da37f;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+
+}
+
+.message{
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+p {
+  font-size: 15px;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.text-gradient {
+  border-radius: 10px;
+  background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 40%, rgba(161,161,226,1) 46%, rgba(0,212,255,1) 100%); 
+}
+
+
+
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+ 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
