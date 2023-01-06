@@ -3,7 +3,8 @@ const { Configuration, OpenAIApi} = require("openai");
 const express = require('express');
 const bodyParser = require('body-parser')
 const cors = require('cors')
-require('dotenv').config();
+
+
 const port = 8000
 
 const app = express()
@@ -14,8 +15,8 @@ app.use(cors())
 
 
 const configuration = new Configuration({
-    organization: process.env.OPENAI_ORGANAZATION_KEY,
-    apiKey: process.env.OPENAI_KEY,
+    organization: "org-fnl47Qe3QUQIexfhZrt8d167",
+    apiKey: "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"
 });
 
 const openai = new OpenAIApi(configuration);
@@ -25,13 +26,13 @@ const openai = new OpenAIApi(configuration);
 // create a simple express api that calls the functions above
 
 app.post('/', async (req, res) => {
-    const { message , currentModel, tokens} = req.body;
+    const { message , currentModel, tokens, temperature} = req.body;
     console.log(tokens)
     const response = await openai.createCompletion({
         model: `${currentModel}`,
         prompt: `${message}`,
         max_tokens: tokens,
-        temperature: 0,
+        temperature: temperature,
       });
       res.json({
         message:response.data.choices[0].text
@@ -42,11 +43,11 @@ app.post('/', async (req, res) => {
 
 app.get('/models', async (req, res) => {
   const response = await openai.listModels()
-  console.log(response.data.data)
+  // console.log(response.data.data)
   res.json({
     models: response.data.data
   })
 })
 app.listen(port, () => {
-    console.log('Example app listening at http://localhost:5000/')
+    console.log('Example app listening at http://localhost:8000/')
 })

@@ -12,6 +12,8 @@ function App() {
   const [models, setModels] = useState([])
   const [currentModel, setCurrentModel] = useState("ada")
   const [tokens, setTokens] = useState(100)
+  const [temperature, setTemperature] = useState(0.1)
+  console.log(tokens)
   const [chatLog, setChatLog] = useState([{
     user: "gpt",
     message: "How can I help you today"
@@ -76,14 +78,19 @@ function App() {
           New Chat</div>
           <div className="models">
           <label>Select Your Model</label>
-            <select className='options' onChange={(e)=> { setCurrentModel(e.target.value)}}>{models.map((model,id) => (
+            <select className='options' onChange={(e)=> { setCurrentModel([e.target.value])}}>{models.map((model,id) => (
               <option className='option' key={model.id} value={model.id}>{model.id}</option>
             ))}
             </select>
           </div>
           <div className="models">
           <label>Token Numbers:</label>
-          <input className='options'  type="number" min="100" max="3000" onChange={(e)=> setTokens(e.target.value)}></input>
+          <input className='options'  type="integer" value={tokens}  onChange={(e)=>{ setTokens(e.target.value)}}></input>
+          </div>
+
+          <div className="models">
+          <label>Temperature:</label>
+          <input className='options'  type="number" value={temperature}  onChange={(e)=>{ setTemperature(e.target.value)}}></input>
           </div>
       </aside>
 
