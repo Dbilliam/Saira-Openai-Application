@@ -1,9 +1,8 @@
-// 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
 const { Configuration, OpenAIApi} = require("openai");
 const express = require('express');
 const bodyParser = require('body-parser')
 const cors = require('cors')
-
+dotenv.config()
 
 const port = 8000
 
@@ -16,7 +15,7 @@ app.use(cors())
 
 const configuration = new Configuration({
     organization: "org-fnl47Qe3QUQIexfhZrt8d167",
-    apiKey: "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"
+    apiKey: `${process.env.OPENAI_KEY}`
 });
 
 const openai = new OpenAIApi(configuration);
@@ -35,8 +34,9 @@ app.post('/', async (req, res) => {
         temperature: temperature,
       });
       res.json({
-        message:response.data.choices[0].text
+        message:response.data.choices[0].text,
       })
+
 })
 
 
